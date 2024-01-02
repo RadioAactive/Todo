@@ -1,4 +1,4 @@
-from functions import open_file , write_file
+from functions import open_file , write_file , app_help
 import time
 
 time_global = time.strftime("%m %b %d, %y")
@@ -106,6 +106,6 @@ while True:
             print("Exitting...")
             break
         case "help":
-            help()
+                app_help()
         case _:
             print("If you need help then type help in terminal")
