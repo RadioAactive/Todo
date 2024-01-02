@@ -106,18 +106,6 @@ while True:
             print("Exitting...")
             break
         case "help":
-            print("""1.Show\n
-2.Add\n
-3.Edit\n
-4.Remove""")
-            help_index = int(input("What do you want help with? "))
-            if help_index == 1:
-                print("Shows the list by typing 'show' in the terminal")
-            elif help_index == 2:
-                print("Adds contants written in terminal by typing 'add [your task]")
-            elif help_index == 3:
-                print("Edits your task by typing 'edit [your task number]")
-            elif help_index == 4:
-                print("Removes your task by typing 'remove [your task number]' or remove everything by typing 'remove all")
+            help()
         case _:
             print("If you need help then type help in terminal")
