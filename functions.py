@@ -1,11 +1,11 @@
 
-def open_file(listfile = "Todo project/list_save"):
+def open_file(listfile = "Todo project/Contents/list_save"):
      """ Scans the selected file and make the contants as a list"""
      with open(listfile , "r") as list_local:
           todo_local = list_local.readlines()
      return todo_local
 
-def write_file( specify_varible , listfile = "Todo project/list_save"):
+def write_file( specify_varible , listfile = "Todo project/Contents/list_save"):
      """ Overwrites a file when a todo list is updated"""
      with open(listfile , "w") as list_local:
              list_local.writelines(specify_varible)
@@ -34,5 +34,6 @@ def app_help():
                break
           else:
                print("not a valid response")
+               break
                
         

@@ -21,11 +21,11 @@ while True:
 
         #time storage
 
-        time_contants = open_file("Todo project/time.txt")
+        time_contants = open_file("Todo project/Contents/time.txt")
         
         time_contants.append(time_global + "\n")
 
-        write_file(time_contants , "Todo project/time.txt")
+        write_file(time_contants , "Todo project/Contents/time.txt")
 
     elif user_Action.startswith("edit"):
         try:    
@@ -54,7 +54,7 @@ while True:
         try:
             if user_Action == "remove all":
                 write_file("")
-                write_file("" , "Todo project/time.txt")
+                write_file("" , "Todo project/Contents/time.txt")
                 print("Contents have been deleted")
         
             else:
@@ -85,7 +85,7 @@ while True:
             if todo == []:
                 print("There is nothing in the list")
             else:
-                time_contants = open_file("Todo project/time.txt")
+                time_contants = open_file("Todo project/Contents/time.txt")
                 time_contants = [remove.strip("\n") for remove in time_contants]
 
                 new_item = [item.strip("\n") for item in todo]

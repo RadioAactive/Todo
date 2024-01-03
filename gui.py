@@ -1,3 +1,4 @@
+import functions
 import PySimpleGUI as pg
 
 label = pg.Text("Enter a todo")
