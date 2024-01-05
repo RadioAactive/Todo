@@ -1,4 +1,4 @@
-from functions import open_file , write_file , app_help
+from functions import open_file , write_file , app_help , time_repeat
 import time
 
 time_global = time.strftime("%m %b %d, %y")
