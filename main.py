@@ -85,7 +85,7 @@ while True:
             if todo == []:
                 print("There is nothing in the list")
             else:
-                time_contants = open_file("Todo project/Contents/time.txt")
+                time_contants = open_file(listfile="Todo project/Contents/time.txt")
                 time_contants = [remove.strip("\n") for remove in time_contants]
 
                 new_item = [item.strip("\n") for item in todo]
@@ -95,12 +95,12 @@ while True:
                     if time_global == time_contants[i]:
                         print(row ,f"-- added Today")
 
-                    elif time_global[0:2] == time_contants[i][0:2] and time_global[11:13] == time_contants[i][11:13]:
-                        if int(time_global[7:9]) == int(time_contants[i][7:9]) + 1:
+                    elif time_global[0:2] == time_contants[i][0:2] and int(time_global[7:9]) == int(time_contants[i][7:9]) + 1:
+                        if time_global[11:13] == time_contants[i][11:13]:
                             print(row ,f"-- added yesterday")
 
                     else:
-                        print(row ,f"-- added on {time_contants[i]}")
+                        print(row ,f"-- added on {time_contants[i][0:3]}")
                     
         case "exit" | "4":
             print("Exitting...")

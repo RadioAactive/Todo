@@ -12,6 +12,7 @@ input_module = pg.InputText(tooltip="Enter TODO" , key="todo")
 compiled = []
 if functions.open_file() != []:
     functions.time_repeat(compiled)
+print(compiled)
       
 list_box = pg.Listbox(compiled , key="list", size=[40,5] , enable_events=True)
 add_button = pg.Button("Add")
@@ -35,20 +36,25 @@ while True:
             functions.write_file(todo)
             total_p = []
             functions.time_repeat(total_p)
-
+        
             window["list"].update(values = total_p)
         case "Edit":
-            todos = values["list"]
-            input_todo = values["todo"]
-            file_todo = functions.open_file()
-            indeex = file_todo.index(todos[0])
-            file_todo[indeex] = input_todo + "\n"
-            print(file_todo)
-
-            functions.write_file(file_todo)
-            
-            window["list"].update(values = file_todo)
-         
+            # INDEX OF TIME AND LIST_SAVE
+            index = compiled.index(f"{values["list"][0]}")
+            # LIST UPDATE
+            local_list = functions.open_file()
+            local_list[index] = values["todo"] + '\n' 
+            functions.write_file(local_list)
+            # TIME UPDATE
+            local_time = functions.open_file(r"Todo project\Contents\time.txt")
+            print(local_time)
+            local_time[index] = time_global + '\n'
+            print(local_time)
+            functions.write_file(local_time , r"Todo project\Contents\time.txt")
+            # OVERALL SAVE
+            edited_list = []
+            functions.time_repeat(edited_list)
+            window["list"].update(values = edited_list)
 
         case pg.WIN_CLOSED:
             break

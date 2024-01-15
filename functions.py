@@ -45,15 +45,15 @@ def time_repeat(in_lists):
 
 
     for i , lists in enumerate(new_item):
-          row = f"{i + 1}.{lists.capitalize()}"
+          row = f"{i + 1}. {lists.capitalize()}"
           if time_global == time_contants[i]:
                in_lists.append(f"{row} -- added Today")
 
-          elif time_global[0:2] == time_contants[i][0:2] and time_global[11:13] == time_contants[i][11:13]:
-               if int(time_global[7:9]) == int(time_contants[i][7:9]) + 1:
+          elif time_global[0:2] == time_contants[i][0:2] and int(time_global[7:9]) == int(time_contants[i][7:9]) + 1:
+               if time_global[11:13] == time_contants[i][11:13]:
                     in_lists.append(f"{row} -- added Yesterday")
 
           else:
-               in_lists.append(f"{row} -- added {time_contants[i]}")
+               in_lists.append(f"{row} -- added on {time_contants[i][3:13]}")
                
         
