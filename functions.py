@@ -54,19 +54,6 @@ def time_repeat(in_lists):
                     in_lists.append(f"{row} -- added Yesterday")
 
           else:
-               in_lists.append(f"{row} -- added on {time_contants[i][3:13]}")
-
-def list_duplicates_of(seq,item):
-    start_at = -1
-    locs = []
-    while True:
-        try:
-            loc = seq.index(item,start_at+1)
-        except ValueError:
-            break
-        else:
-            locs.append(loc)
-            start_at = loc
-    return locs          
+               in_lists.append(f"{row} -- added on {time_contants[i][3:13]}")     
                
         
