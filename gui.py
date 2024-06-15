@@ -8,12 +8,13 @@ time_global = time.strftime("%m %b %d, %y")
 
 label = pg.Text("Enter a todo")
 input_module = pg.InputText(tooltip="Enter TODO" , key="todo") 
-#LIST BOX
-compiled = []
-if functions.open_file() != []:
-    functions.time_repeat(compiled)
 
-list_box = pg.Listbox(compiled , key="list", size=[40,5] , enable_events=True)
+#LIST BOX
+upd_compiled = []
+if functions.open_file() != []:
+    functions.time_repeat(upd_compiled)
+
+list_box = pg.Listbox(upd_compiled , key="list", size=[40,5] , enable_events=True)
 add_button = pg.Button("Add")
 edit_button = pg.Button("Edit")
 remove_button = pg.Button("Remove")
@@ -21,10 +22,14 @@ remove_button = pg.Button("Remove")
 window = pg.Window("Todo" , layout=[[label],[input_module , add_button] ,
                                      [list_box] , [remove_button , edit_button]])
 while True:
+    #LIST BOX
+    compiled = []
+    if functions.open_file() != []:
+        functions.time_repeat(compiled)
     events , values   = window.read() # type: ignore
+    print(events , values)
     match events:
         case "Add":
-            print(functions.open_file())
             if values['todo'] + '\n' in functions.open_file():
                 w = pg.Window("Error" , layout=[[pg.Text("You are already doing this task!")]])
                 w.read()
@@ -50,9 +55,7 @@ while True:
             functions.write_file(local_list)
             # TIME UPDATE
             local_time = functions.open_file(r"Todo project\Contents\time.txt")
-            print(local_time)
             local_time[index] = time_global + '\n'
-            print(local_time)
             functions.write_file(local_time , r"Todo project\Contents\time.txt")
             # OVERALL SAVE
             edited_list = []
